@@ -79,14 +79,10 @@
     <?php
         if(isset($_POST["log_out"])){
             ?>
-            <!-- <script>
-            alert("ádfghjh");
-            </script> -->
             <?php
             unset($_SESSION['username']);
             session_unset();
             session_destroy();
-            header('Location:index.php');
         }
     ?>
 <!-- Van modified ↑↑ -->

@@ -188,14 +188,74 @@
   </div>
   <div class="block col">
     <div class="blocktitle justify-content-between"">
-      <h3 class="title"><a title="PHIM BỘ MỚI" href="javascript:void();">PHIM THUYẾT MINH</a></h3>
-      <div class="more m-0"><a href="?mod=list&type=category&id=1">Xem thêm</a> »</div>
+      <h3 class="title"><a title="PHIM BỘ MỚI" href="javascript:void();">PHIM HÀI HƯỚC</a></h3>
+      <div class="more m-0"><a href="?mod=list&type=category&id=2">Xem thêm</a> »</div>
     </div>
     <div class="blockbody" id="list-movie-update">
       <div class="tab">
         <ul class="list-film tab">
           <?php
-            $sql = 'select * from `film` where `category_id` = 1 order by `id` DESC limit 4';
+            $sql = 'select * from `film` where `category_id` = 2 order by `id` DESC limit 4';
+            $query = mysqli_query($link, $sql);
+            while($r=mysqli_fetch_assoc($query)){
+          ?>
+          <li data-liked="238" data-views="33,450">
+            <div class="inner hover-effect"><a href="?mod=detail&film_id=<?php echo $r['id'] ?>" title="<?php echo $r['name'] ?>"><img src="<?php echo $r['image'] ?>" alt=""></a>
+              <div class="info">
+                <div class="name"><a href="?mod=detail&film_id=<?php echo $r['id'] ?>" title="<?php echo $r['name'] ?>"><?php echo $r['name'] ?></a></div>
+                <div class="name2"><?php echo $r['name2'] ?></div>
+              </div>
+              <div class="status"><?php echo $r['status'] ?></div>
+            </div>
+          </li>
+          <?php
+            }
+          ?>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="block col">
+    <div class="blocktitle justify-content-between"">
+      <h3 class="title"><a title="PHIM BỘ MỚI" href="javascript:void();">PHIM TV SHOW</a></h3>
+      <div class="more m-0"><a href="?mod=list&type=category&id=8">Xem thêm</a> »</div>
+    </div>
+    <div class="blockbody" id="list-movie-update">
+      <div class="tab">
+        <ul class="list-film tab">
+          <?php
+            $sql = 'select * from `film` where `category_id` = 8 order by `id` DESC limit 4';
+            $query = mysqli_query($link, $sql);
+            while($r=mysqli_fetch_assoc($query)){
+          ?>
+          <li data-liked="238" data-views="33,450">
+            <div class="inner hover-effect"><a href="?mod=detail&film_id=<?php echo $r['id'] ?>" title="<?php echo $r['name'] ?>"><img src="<?php echo $r['image'] ?>" alt=""></a>
+              <div class="info">
+                <div class="name"><a href="?mod=detail&film_id=<?php echo $r['id'] ?>" title="<?php echo $r['name'] ?>"><?php echo $r['name'] ?></a></div>
+                <div class="name2"><?php echo $r['name2'] ?></div>
+              </div>
+              <div class="status"><?php echo $r['status'] ?></div>
+            </div>
+          </li>
+          <?php
+            }
+          ?>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="block col">
+    <div class="blocktitle justify-content-between"">
+      <h3 class="title"><a title="PHIM BỘ MỚI" href="javascript:void();">PHIM VIỄN TƯỞNG</a></h3>
+      <div class="more m-0"><a href="?mod=list&type=category&id=11">Xem thêm</a> »</div>
+    </div>
+    <div class="blockbody" id="list-movie-update">
+      <div class="tab">
+        <ul class="list-film tab">
+          <?php
+            $sql = 'select * from `film` where `category_id` = 11 order by `id` DESC limit 4';
             $query = mysqli_query($link, $sql);
             while($r=mysqli_fetch_assoc($query)){
           ?>

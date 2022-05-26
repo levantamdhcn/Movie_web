@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="asset/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="asset/css/local.css" />
+    <link rel="stylesheet" type="text/css" href="asset/css/main.css" />
 
     <script type="text/javascript" src="asset/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>   
@@ -23,29 +23,32 @@
     </style>
     
 </head>
-<body>
+<body style="height: 100vh; background-color: #141414;">
     <div id="wrapper">
         <?php
             include("common.php");
         ?>
-        <div id="add-user">
-            <div class="row text-center">
-                <h2>Thêm User</h2>
+        <div class="container">
+          <div id="add-user">
+            <div class="row text-center" style="margin-top: 60px">
+                <div class="col col-sm-6 offset-md-3">
+                  <h2 class="title text-white mt-5">Thêm User</h2>
+                </div>
             </div>
             <div class="form-update">
                 <form method="post" id="form-update" name="form-update" class="form-horizontal" action="" role="form" style="padding: 20px;">
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Tài khoản</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Tài khoản</label>
+                        <div class="col-lg-7 offset-md-2">
                         <input type="text" class="form-control" name="username" id="username" value="">
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="usernameerror">Tên tài khoản chỉ bao gồm ký tự a-z, A-Z và số</label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Mật khẩu</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Mật khẩu</label>
+                        <div class="col-lg-7 offset-md-2">
                         <input type="password" class="form-control" name="password" id="password1" value="">
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="password1error">Mật khẩu phải bao gồm chữ thường, chữ hoa và số, độ dài tối thiểu 8 ký tự</label>
                         </div>
@@ -53,53 +56,54 @@
 
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Xác nhận mật khẩu</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Xác nhận mật khẩu</label>
+                        <div class="col-lg-7 offset-md-2">
                         <input type="password" class="form-control" name="password2" id="password2" value="">
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="password2error1">Mật khẩu phải bao gồm chữ thường, chữ hoa và số, độ dài tối thiểu 8 ký tự</label>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Họ tên</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Họ tên</label>
+                        <div class="col-lg-7 offset-md-2">
                             <input type="text" class="form-control" name="fullname" id="fullname" value="">
                             <label class="notifyerror" style="visibility: hidden; height: 0px" id="fullnameerror">Tên chỉ bao gồm các chữ cái</label>  
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Email</label>
-                        <div class="col-lg-7"><input type="email" class="form-control" name="email" id="email">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Email</label>
+                        <div class="col-lg-7 offset-md-2"><input type="email" class="form-control" name="email" id="email">
                             <label class="notifyerror" style="visibility: hidden; height: 0px" id="emailerror">Email không đúng định dạng name@domain</label>  
                         </div>
                     </div>
                                 
                     <div class="form-group">
-                        <label for="birthday" class="col-lg-3 control-label">Ngày sinh</label>
-                        <div class="col-lg-7">
+                        <label for="birthday" class="col-lg-3 control-label text-white offset-md-2">Ngày sinh</label>
+                        <div class="col-lg-7 offset-md-2">
                             <input class="form-control" type="date" value="" id="birthday" name="birthday">
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Giới tính</label>
-                        <div class="col-lg-7">
-                            <label class="checkbox-inline">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Giới tính</label>
+                        <div class="col-lg-7 offset-md-2">
+                            <label class="checkbox-inline text-white">
                             <input type="radio" name="gender" id="update-gender-male" value="male" checked=""> Nam</label>
-                            <label class="checkbox-inline">
+                            <label class="checkbox-inline text-white">
                                 <input type="radio" name="gender" id="update-gender-female" value="female"> Nữ
                             </label>
                         </div>
                     </div>
                     
-                    <div class="col-offset-3 col-lg-10">
-                        <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Đăng kí </button>
+                    <div class="col-offset-3 col-lg-10 offset-md-7">
+                        <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Tạo tài khoản </button>
                     </div>
 
                     <div class="clear"></div>
                 </form>
             </div>
+        </div>
         </div>  
     </div>
 

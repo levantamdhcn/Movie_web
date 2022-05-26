@@ -94,13 +94,12 @@
       line-height: 1.428571429;
       color: #808080;
       height: unset;
-      background-color: #ffffff;
-      border: 1px solid #cccccc;
+      background-color: #333 !important;
+      border: 1px solid #111 !important;
+      color: #b8b8b8 !important;
       border-radius: 4px;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-              transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     }
 
     .form-control:focus {

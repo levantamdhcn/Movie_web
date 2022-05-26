@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="asset/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="asset/css/local.css" />
+    <link rel="stylesheet" type="text/css" href="asset/css/main.css" />
 
     <script type="text/javascript" src="asset/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>   
@@ -31,7 +31,7 @@
         }
     </style>
 </head>
-<body>
+<body style="height: 100vh; background-color: #141414;">
 <?php
     require('libs/db.php');
 
@@ -50,60 +50,63 @@
         <?php
             include("common.php");
         ?>
-        <div id="add-user">
-            <div class="row text-center">
-                <h2>Chỉnh sửa User</h2>
-            </div>
-            <form method="post" id="form-update" name="form-update" class="form-horizontal" action="" role="form" style="padding: 20px;">
+        <div class="container">
+            <div id="add-user">
+                <div class="row text-center" style="margin-top: 60px">
+                    <div class="col col-sm-6 offset-md-3 mt-5">
+                        <h2 class="text-white title">Chỉnh sửa User</h2>
+                    </div>
+                </div>
+                <form method="post" id="form-update" name="form-update" class="form-horizontal" action="" role="form" style="padding: 20px;">
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">ID</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">ID</label>
+                        <div class="col-lg-7 offset-md-2">
                         <input type="text" class="form-control" name="id" id="id" value="<?php echo $row["ID"];?>" readonly>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Tài khoản</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Tài khoản</label>
+                        <div class="col-lg-7 offset-md-2">
                         <input type="text" class="form-control" name="username" id="username" value="<?php echo $row["username"];?>">
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="usernameerror">Tên tài khoản chỉ bao gồm ký tự a-z, A-Z và số</label>
                         </div>
                     </div>
                     <!-- dont have to get value of password from db -->
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Mật khẩu mới</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Mật khẩu mới</label>
+                        <div class="col-lg-7 offset-md-2">
                         <input type="password" class="form-control" name="password" id="password1" value="">
                         <label class="notifyerror" style="visibility: hidden; height: 0px" id="password1error">Mật khẩu phải bao gồm chữ thường, chữ hoa và số, độ dài tối thiểu 8 ký tự</label>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Họ tên</label>
-                        <div class="col-lg-7">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Họ tên</label>
+                        <div class="col-lg-7 offset-md-2">
                             <input type="text" class="form-control" name="fullname" id="fullname" value="<?php echo $row["fullname"];?>">
                             <label class="notifyerror" style="visibility: hidden; height: 0px" id="fullnameerror">Tên chỉ bao gồm các chữ cái</label>  
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Email</label>
-                        <div class="col-lg-7"><input type="email" class="form-control" name="email" id="email" value="<?php echo $row["email"];?>">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Email</label>
+                        <div class="col-lg-7 offset-md-2"><input type="email" class="form-control" name="email" id="email" value="<?php echo $row["email"];?>">
                             <label class="notifyerror" style="visibility: hidden; height: 0px" id="emailerror">Email không đúng định dạng name@domain</label>  
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="birthday" class="col-lg-3 control-label">Ngày sinh</label>
-                        <div class="col-lg-7">
+                        <label for="birthday" class="col-lg-3 control-label text-white offset-md-2">Ngày sinh</label>
+                        <div class="col-lg-7 offset-md-2">
                             <input class="form-control" type="date" value="<?php echo $row["birthday"];?>" id="birthday" name="birthday">
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Giới tính</label>
-                        <div class="col-lg-7">
-                            <label class="checkbox-inline">
+                        <label class="col-lg-3 control-label text-white offset-md-2">Giới tính</label>
+                        <div class="col-lg-7 offset-md-2">
+                            <label class="checkbox-inline text-white">
                             <input type="radio" name="gender" id="update-gender-male" value="male" <?php if($row["sex"] == "male") echo "checked";?>> Nam</label>
-                            <label class="checkbox-inline">
+                            <label class="checkbox-inline text-white">
                                 <input type="radio" name="gender" id="update-gender-female" value="female" <?php if($row["sex"] == "female") echo "checked";?>> Nữ
                             </label>
                         </div>
@@ -111,16 +114,16 @@
                     
                     <div class="col-offset-3 col-lg-10">
                         <div class="col-lg-3"></div>
-                        <div class="col-lg-7">
-                            <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Lưu lại </button>
+                        <div class="col-lg-7 offset-md-7">
+                            <button type="submit" class="btn btn-primary mr-2" id="button_update" name="button_update">Lưu lại </button>
                             <button type="submit" class="btn btn-primary" id="button_previous" name="button_previous" onclick="goToPrePage()">Về trang trước </button>
                         </div>
                     </div>
 
                     <div class="clear"></div>
                 </form>
-            
-        </div>  
+            </div>  
+        </div>
     </div>
     <script>
         function goToPrePage() {

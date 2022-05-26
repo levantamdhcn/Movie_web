@@ -49,6 +49,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Index</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/icons/css/all.css" type="text/css" rel="stylesheet" >
   <link href="css/owl.carousel.css" type="text/css" rel="stylesheet"> 
   <script src="js/jquery.min.js" type="text/javascript"></script>
   <script src="js/owl.carousel.js" type="text/javascript"></script>
@@ -63,97 +65,33 @@
       padding: 7px 0px 0px !important;
     }
 
-    .form-register{
-      padding: 10px;
-      margin-bottom: 50px;
-    }
-    .form-control {
-      background-color: #333 !important;
-      border: 1px solid #111 !important;
-      color: #b8b8b8 !important;
-    }
-
-    
-    .col-lg-3,
-    .col-lg-7,
-    .col-lg-10 {
-      position: relative;
-      min-height: 1px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    .form-control {
-      -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-              box-sizing: border-box;
-    }
-
-    @media (min-width: 992px) {
-    
-      .col-lg-3,
-     
-      .col-lg-7,
-     
-      .col-lg-10 {
-        float: left;
-      }
-   
-      .col-lg-3 {
-        width: 25%;
-      }
-   
-      .col-lg-7 {
-        width: 58.333333333333336%;
-      }
-    
-      .col-lg-10 {
-        width: 30%;
-      }
-      .col-offset-3 {
-        margin-left: 25%;
-      }
-    }
-
-    .form-control:-moz-placeholder {
-      color: #999999;
-    }
-
-    .form-control::-moz-placeholder {
-      color: #999999;
-    }
-
-    .form-control:-ms-input-placeholder {
-      color: #999999;
-    }
-
-    .form-control::-webkit-input-placeholder {
-      color: #999999;
-    }
-
     .form-control {
       display: block;
       width: 100%;
-      height: 38px;
-      padding: 8px 12px;
+      padding: 12px 16px;
       font-size: 14px;
       line-height: 1.428571429;
-      color: #555555;
-      vertical-align: middle;
-      background-color: #ffffff;
-      border: 1px solid #cccccc;
+      height: unset;
+      background-color: #333 !important;
+      border: 1px solid #111 !important;
+      color: #b8b8b8 !important;
       border-radius: 4px;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-              transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+
+    .form-control:focus {
+      box-shadow: unset;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
     }
 
     .form-control:focus {
       border-color: rgba(82, 168, 236, 0.8);
       outline: none;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
     }
 
     .form-group {
@@ -224,48 +162,6 @@
       margin-left: 10px;
     }
 
-
-
-    .btn-primary {
-      color: #ffffff;
-      background-color: #428bca;
-      border-color: #428bca;
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary.active {
-      background-color: #357ebd;
-      border-color: #3071a9;
-    }
-
-    .btn-primary.disabled,
-    .btn-primary[disabled],
-    fieldset[disabled] .btn-primary,
-    .btn-primary.disabled:hover,
-    .btn-primary[disabled]:hover,
-    fieldset[disabled] .btn-primary:hover,
-    .btn-primary.disabled:focus,
-    .btn-primary[disabled]:focus,
-    fieldset[disabled] .btn-primary:focus,
-    .btn-primary.disabled:active,
-    .btn-primary[disabled]:active,
-    fieldset[disabled] .btn-primary:active,
-    .btn-primary.disabled.active,
-    .btn-primary[disabled].active,
-    fieldset[disabled] .btn-primary.active {
-      background-color: #428bca;
-      border-color: #428bca;
-    }
-
-
-    .form-inline .form-control,
-    .form-inline .radio,
-    .form-inline .checkbox {
-      display: inline-block;
-    }
-
     .form-inline .radio,
     .form-inline .checkbox {
       margin-top: 0;
@@ -282,10 +178,6 @@
       content: " ";
     }
 
-
-    .form-horizontal .form-group:after {
-      clear: both;
-    }
 
     .form-horizontal .form-group:before,
     .form-horizontal .form-group:after {
@@ -411,10 +303,16 @@
 
           
 
-            <div class="col-offset-3 col-lg-10">
-        <!--       <input type="hidden" name="_fxRef" value="http://www.phimmoi.net/">
-              <input type="hidden" name="update[password_md5]" value=""> -->
-              <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Cập nhật</button>
+            <div class="col offset-sm-1 col-sm-9 text-right">
+              <button 
+                style="background-color: var(--main-color); padding: 12px 16px; font-weight: 600; border: none;" 
+                type="submit" 
+                class="btn btn-primary" 
+                id="button_update" 
+                name="button_update"
+              >
+                Cập nhật
+              </button>
             </div>
 
             <div class="clear"></div>
