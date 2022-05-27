@@ -41,8 +41,7 @@
                 </form>
             </div>
             <div class="row" id="list-user">
-                <div class="col-md-1"></div>
-                <div class="col-md-8">
+                <div class="col-md-12 offset-md-1">
                     <!-- get from database -->
                     <?php
                         if(isset($_POST["button_search"])){
@@ -56,14 +55,14 @@
                             $result = mysqli_query($link, $sql);
                             if (mysqli_num_rows($result) > 0) { ?>
                                 <!-- output data of each row -->
-                                <table class="table mt-5" style="margin: 10px 0px">
+                                <table class="table mt-5 table-hover table-dark mt-5 shadow" style="margin: 10px 0px">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">User name</th>
-                                            <th scope="col">Fullname</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col"></th>
+                                            <th scope="col" class="border-top-0">ID</th>
+                                            <th scope="col" class="border-top-0">User name</th>
+                                            <th scope="col" class="border-top-0">Fullname</th>
+                                            <th scope="col" class="border-top-0">Email</th>
+                                            <th scope="col" class="border-top-0"></th>
                                         </tr>
                                     </thead>
                                     <tbody>

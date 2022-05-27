@@ -26,7 +26,7 @@
             <div class="row" id="search-user" style="margin-top: 60px">
                 <form method="post">
                     <div class="row mt-5">
-                        <div class="col col-md-12 offset-md-11">
+                        <div class="col col-md-12 offset-md-4">
                             <div class="row">
                                 <div class="col-md-10">
                                     <input style="font-size: 14px; padding: 23px 16px" class="form-control form-control-borderless" type="search" placeholder="Tìm phim..." name="qry">
@@ -40,8 +40,7 @@
                 </form>
             </div>
             <div class="row" id="list-user">
-                <div class="col-md-1"></div>
-                <div class="col-md-8">
+                <div class="col-md-12 offset-md-1">
                     <!-- get from database -->
                     <?php
                         if(isset($_POST["button_search"])){
@@ -56,15 +55,15 @@
                             $result = mysqli_query($link, $sql);
                             if (mysqli_num_rows($result) > 0) { ?>
                                 <!-- output data of each row -->
-                                <table class="table text-white mt-6" style="margin: 10px 0px">
+                                <table class="table text-white mt-6 table-hover table-dark mt-5 shadow">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Tên tiếng việt</th>
-                                            <th scope="col">Tên tiếng anh</th>
-                                            <th scope="col">Đạo diễn</th>
-                                            <th scope="col">Diễn viễn</th>
-                                            <th scope="col"></th>
+                                            <th scope="col" class="border-top-0">ID</th>
+                                            <th scope="col" class="border-top-0">Tên tiếng việt</th>
+                                            <th scope="col" class="border-top-0">Tên tiếng anh</th>
+                                            <th scope="col" class="border-top-0">Đạo diễn</th>
+                                            <th scope="col" class="border-top-0">Diễn viên</th>
+                                            <th scope="col" class="border-top-0"></th>
                                         </tr>
                                     </thead>
                                     <tbody>

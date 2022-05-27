@@ -110,3 +110,13 @@ th {
     font-weight: 500;
     color: white;
 }
+
+tbody {
+    font-size: 14px;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: scroll;
+}

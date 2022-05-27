@@ -142,20 +142,15 @@
         var button_update = document.getElementById("button_update");
 
         var usernameerror = document.getElementById("usernameerror");
-        //var passworderror = document.getElementById("passworderror");
         var password1error =  document.getElementById("password1error");
         var password2error1 =  document.getElementById("password2error1");
         var fullnameerror = document.getElementById("fullnameerror");
         var emailerror =  document.getElementById("emailerror");
-        //var phoneerror =  document.getElementById("phoneerror");
 
         var regUsername = /^[A-Za-z0-9]+$/;
-        var regFullname = /^[A-Za-z ]+$/;
+        var regFullname = /[^a-z0-9A-Z_àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]/u;
         var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        // var regPhone =  /^\d{10}$/;
         var regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-
-        //var errorPasswordDefault = (passworderror.innerText || passworderror.textContent);
 
         username.onchange = function(){
             checkname();
