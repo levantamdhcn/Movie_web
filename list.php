@@ -1,45 +1,45 @@
 <?php
   if ((!isset($_POST['filter_type']) || $_POST['filter_type']=='')  && (!isset($_POST['filter_nation']) || $_POST['filter_nation']=='') && (!isset($_POST['filter_year']) || $_POST['filter_year']=='')) {
     if ($_GET['type'] == 'category') {
-      echo $cate_id = $_GET['id'];
-      echo $sql_filter = "select * from `film` where `category_id` = '$cate_id'";
+       $cate_id = $_GET['id'];
+       $sql_filter = "select * from `film` where `category_id` = '$cate_id'";
     }
     elseif ($_GET['type'] == 'nation') {
-      echo $nation = $_GET['id'];
-      echo $sql_filter = "select * from `film` where `nation_id` = '$nation'";
+       $nation = $_GET['id'];
+       $sql_filter = "select * from `film` where `nation_id` = '$nation'";
     }
     elseif ($_GET['type'] == 'single-movie') {
-      echo $year = $_GET['year'];
-      echo $sql_filter = "select * from `film` where `type_movie` = 1 and `year` = '$year'";
+       $year = $_GET['year'];
+       $sql_filter = "select * from `film` where `type_movie` = 1 and `year` = '$year'";
     }
     elseif ($_GET['type'] == 'series-movie') {
-      echo $year = $_GET['year'];
-      echo $sql_filter = "select * from `film` where `type_movie` = 2 and `year` = '$year'";
+       $year = $_GET['year'];
+       $sql_filter = "select * from `film` where `type_movie` = 2 and `year` = '$year'";
     }
     else {
-      echo $year = $_GET['year'];
-      echo $sql_filter = "select * from `film` where `type_movie` = 3 and `year` = '$year'";
+       $year = $_GET['year'];
+       $sql_filter = "select * from `film` where `type_movie` = 3 and `year` = '$year'";
     }
   }
   else {
     if ($_GET['type'] == 'category') {
       $cate_id = $_GET['id'];
       if ($_POST['filter_type'] != '' && $_POST['filter_nation'] == '' && $_POST['filter_year'] == '') {
-        echo $filter_type = $_POST['filter_type'];
+         $filter_type = $_POST['filter_type'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 0, year = 0
@@ -47,19 +47,19 @@
         $filter_type = $_POST['filter_type'];
         $filter_nation = $_POST['filter_nation'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 1, year = 0
@@ -67,19 +67,19 @@
         $filter_type = $_POST['filter_type'];
         $filter_year = $_POST['filter_year'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 0, year = 1
@@ -88,57 +88,57 @@
         $filter_nation = $_POST['filter_nation'];
         $filter_year = $_POST['filter_year'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year'  order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year'  order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 1, year = 1
       elseif ($_POST['filter_type'] == '' && $_POST['filter_nation'] != '' && $_POST['filter_year'] == '') {
         $filter_nation = $_POST['filter_nation'];
-        echo $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' limit 32";
+         $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' limit 32";
       }
       // type = 0,nation = 1, year = 0
       elseif ($_POST['filter_type'] == '' && $_POST['filter_nation'] != '' && $_POST['filter_year'] != '') {
         $filter_nation = $_POST['filter_nation'];
         $filter_year = $_POST['filter_year'];
-        echo $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year'";
+         $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `nation_id` = '$filter_nation' and `year` = '$filter_year'";
       }
       // type = 0,nation = 1, year = 1
       elseif ($_POST['filter_type'] == '' && $_POST['filter_nation'] == '' && $_POST['filter_year'] != '') {
-        echo $filter_year = $_POST['filter_year'];
-        echo $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year'";
+         $filter_year = $_POST['filter_year'];
+         $sql_filter = "select * from `film` where `category_id` = '$cate_id' and `year` = '$filter_year'";
       }
       // type = 0,nation = 0, year = 1 ()
     }
     elseif ($_GET['type'] == 'nation') {
       $nation = $_GET['id'];
       if ($_POST['filter_type'] != '' && $_POST['filter_nation'] == '' && $_POST['filter_year'] == '') {
-        echo $filter_type = $_POST['filter_type'];
+         $filter_type = $_POST['filter_type'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 0, year = 0
@@ -146,46 +146,46 @@
         $filter_type = $_POST['filter_type'];
         $filter_year = $_POST['filter_year'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 0, year = 1
       elseif ($_POST['filter_type'] == '' && $_POST['filter_nation'] == '' && $_POST['filter_year'] != '') {
-        echo $filter_year = $_POST['filter_year'];
-        echo $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year'";
+         $filter_year = $_POST['filter_year'];
+         $sql_filter = "select * from `film` where `nation_id` = '$nation' and `year` = '$filter_year'";
       }
       // type = 0,nation = 0, year = 1
     }
     elseif ($_GET['type'] == 'single-movie') {
       $year = $_GET['year'];
       if ($_POST['filter_type'] != '' && $_POST['filter_nation'] == '' && $_POST['filter_year'] == '') {
-        echo $filter_type = $_POST['filter_type'];
+         $filter_type = $_POST['filter_type'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 0, year = 0
@@ -193,46 +193,46 @@
         $filter_type = $_POST['filter_type'];
         $filter_nation = $_POST['filter_nation'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 1, year = 0
       elseif ($_POST['filter_type'] == '' && $_POST['filter_nation'] != '' && $_POST['filter_year'] == '') {
         $filter_nation = $_POST['filter_nation'];
-        echo $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' limit 32";
+         $sql_filter = "select * from `film` where `type_movie` = 1 and `nation_id` = '$filter_nation' limit 32";
       }
       // type = 0,nation = 1, year = 0
     }
     elseif ($_GET['type'] == 'series-movie') {
       $year = $_GET['year'];
       if ($_POST['filter_type'] != '' && $_POST['filter_nation'] == '' && $_POST['filter_year'] == '') {
-        echo $filter_type = $_POST['filter_type'];
+         $filter_type = $_POST['filter_type'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 0, year = 0
@@ -240,46 +240,46 @@
         $filter_type = $_POST['filter_type'];
         $filter_nation = $_POST['filter_nation'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 1, year = 0
       elseif ($_POST['filter_type'] == '' && $_POST['filter_nation'] != '' && $_POST['filter_year'] == '') {
         $filter_nation = $_POST['filter_nation'];
-        echo $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' limit 32";
+         $sql_filter = "select * from `film` where `type_movie` = 2 and `nation_id` = '$filter_nation' limit 32";
       }
       // type = 0,nation = 1, year = 0
     }
     else {
       $year = $_GET['year'];
       if ($_POST['filter_type'] != '' && $_POST['filter_nation'] == '' && $_POST['filter_year'] == '') {
-        echo $filter_type = $_POST['filter_type'];
+         $filter_type = $_POST['filter_type'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 0, year = 0
@@ -287,25 +287,25 @@
         $filter_type = $_POST['filter_type'];
         $filter_nation = $_POST['filter_nation'];
         if ($filter_type == 'filter_id') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `id` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `id` desc limit 32";
         }
         elseif ($filter_type == 'filter_view') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `num_view` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_desc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `name` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `name` desc limit 32";
         }
         elseif ($filter_type == 'filter_name_asc') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `name` asc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `name` asc limit 32";
         }
         elseif ($filter_type == 'filter_lenght') {
-          echo  $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
+            $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' order by `duration` desc limit 32";
         }
       }
       // type = 1,nation = 1, year = 0
       elseif ($_POST['filter_type'] == '' && $_POST['filter_nation'] != '' && $_POST['filter_year'] == '') {
         $filter_nation = $_POST['filter_nation'];
-        echo $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' limit 32";
+         $sql_filter = "select * from `film` where `type_movie` = 3 and `nation_id` = '$filter_nation' limit 32";
       }
       // type = 0,nation = 1, year = 0
     }
@@ -320,7 +320,20 @@
         </a>
       </div>
       <div class="item last-child">
-        <span itemprop="title">Phim bộ</span>
+        <?php
+          $cate_id = $_GET['id'];
+          $sql = "select * from category where id= $cat_id";
+          $result = mysqli_query($link, $sql);
+          while($row = mysqli_fetch_assoc($result)){
+          ?>
+          
+            <a href="?mod=home" title="Xem Phim Nhanh, Xem Phim Online chất lượng cao miễn phí">
+              <?php
+                echo '<span>.$row["name"]</span>';
+              ?>
+            </a>
+          <?php } 
+          ?>
       </div>
     </div>
     <div class="filter">
@@ -358,7 +371,7 @@
           <select class="input" name="filter_year">
             <option value="">-Mặc định-</option>
             <?php
-              for ($i=2018; $i >= 2015 ; $i--) {
+              for ($i=2022; $i >= 2015 ; $i--) {
             ?>
               <option value="<?php echo $i ?>"><?php echo $i ?></option>
             <?php
@@ -366,8 +379,15 @@
             ?>
           </select>
         </div>
-        <div class="btn1">
-          <button type="submit" class="btn" id="locphim">Lọc phim</button>
+        <div>
+          <button 
+            style="background-color: var(--main-color); color: white; border: none; cursor: pointer" 
+            type="submit" 
+            class="ml-3 rounded cursor-pointer" 
+            id="locphim"
+          >
+            Lọc phim
+          </button>
         </div>
       </form>
     </div>

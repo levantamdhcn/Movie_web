@@ -8,32 +8,15 @@
 
 	<link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="asset/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="asset/css/local.css" />
+    <link rel="stylesheet" type="text/css" href="asset/css/main.css" />
 
 	<script type="text/javascript" src="asset/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
 
 	<style>
-		img {
-			filter: gray;
-			/* IE6-9 */
-			-webkit-filter: grayscale(1);
-			/* Google Chrome, Safari 6+ & Opera 15+ */
-			-webkit-box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.75);
-			-moz-box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.75);
-			box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.75);
-			margin-bottom: 20px;
-		}
-
-		img:hover {
-			filter: none;
-			/* IE6-9 */
-			-webkit-filter: grayscale(0);
-			/* Google Chrome, Safari 6+ & Opera 15+ */
-		}
 
 		div {
-			padding-bottom: 30px;
+			background-color: #141414;
 		}
         .form-control{
             color: black;
@@ -61,64 +44,56 @@
             <?php
                 include("common.php");
             ?>
-            <div class="container" id="post_film" style="padding: 0 15%">
-                <div class="row text-center" style="margin: 20px 0px;">
-                    <h2 class="title">Thêm Phim</h2>
+            <div class="container" id="post_film">
+                <div class="row text-center" style="margin: 60px 0px 20px 0px;">
+                    <h2 class="title text-white">Thêm Phim</h2>
                 </div>
                 <form method="post" id="form-insert-film" name="form-insert-film" class="form-horizontal" action="" role="form" >
-                    <!-- <div>
-                        <label for="ID-film" class="col-md-2">
-                            ID phim
-                        </label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="ID-film" value="<?php echo "auto increase";?>">
-                        </div>
-                    </div> -->
-                    <div>
-                        <label for="film-name" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="film-name" class="col-md-2 offset-md-2 text-white">
                             Tên phim
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="text" class="form-control" id="film-name" name="film-name">
                         </div>
                     </div>
-                    <div>
-                        <label for="film-name2" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="film-name2" class="col-md-2 offset-md-2 text-white">
                             Tên phim 2
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="text" class="form-control" id="film-name2" name="film-name2">
                         </div>
                     </div>
-                    <div>
-                        <label for="status" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="status" class="col-md-2 offset-md-2 text-white">
                             Trạng thái
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="text" class="form-control" id="status" name="status">
                         </div>
                     </div>
-                    <div>
-                        <label for="director" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="director" class="col-md-2 offset-md-2 text-white">
                             Đạo diễn
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="text" class="form-control" id="director" name="director">
                         </div>
                     </div>
-                    <div>
-                        <label for="actor" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="actor" class="col-md-2 offset-md-2 text-white">
                             Diễn viên
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="text" class="form-control" id="actor" name="actor">
                         </div>
                     </div>
-                    <div>
-                        <label for="category" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="category" class="col-md-2 offset-md-2 text-white">
                             Thể loại
                         </label>
-                        <div class="col-md-10">
+                        <div class="col-md-10 offset-md-2">
                             <select id="category" style="color: black" name="category">
                                 <?php 
                                     $sql = "SELECT * FROM category";
@@ -139,11 +114,11 @@
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <label for="type" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="type" class="col-md-2 offset-md-2 text-white">
                             Type-movie 
                         </label>
-                        <div class="col-md-10">
+                        <div class="col-md-10 offset-md-2">
                             <select id="type" style="color: black" name="type_movie">
                                 <option value="1">Phim lẻ</option>
                                 <option value="2">Phim bộ</option>
@@ -170,11 +145,11 @@
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <label for="nation" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="nation" class="col-md-2 offset-md-2 text-white">
                             Quốc gia
                         </label>
-                        <div class="col-md-10">
+                        <div class="col-md-10 offset-md-2">
                             <select id="nation" style="color: black" name="nation">
                                 <?php 
                                     $sql = "SELECT * FROM nation";
@@ -195,11 +170,11 @@
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <label for="year" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="year" class="col-md-2 offset-md-2 text-white">
                             Năm phát hành
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <select id="year" name="year" id="year" style="color: black">
                                 <option value="2015">2015</option>
                                 <option value="2016">2016</option>
@@ -208,14 +183,14 @@
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <label for="image" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="image" class="col-md-2 offset-md-2 text-white">
                         Link ảnh 
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="file" name="image_name" id="image_name" onchange="alertName()"/>
                             <input type="text" class="form-control" id="image_link" name="image" >
-                            <p class="help-block">
+                            <p class="help-block text-white">
                                 Ví dụ: /images/cuoc-chien-vo-cuc.jpg
                             </p>
                             <script>
@@ -228,36 +203,36 @@
                             </script>
                         </div>
                     </div>
-                    <div>
-                        <label for="decription" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="decription" class="col-md-2 offset-md-2 text-white">
                         Mô tả phim 
                         </label>
-                        <div class="col-md-9" style="color: black">
+                        <div class="col-md-9 offset-md-2" style="color: black">
                             <textarea name="decription" id="decription" cols="82" rows="10"></textarea>
                         </div>
                     
                     </div>
-                    <div>
-                        <label for="duration" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="duration" class="col-md-2 offset-md-2 text-white">
                         Thời lượng (phút)
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="number" class="form-control" id="duration" name="duration">
                         </div>
                     </div>
-                    <div>
-                        <label for="author" class="col-md-2">
+                    <div class="col col-sm-12 mb-2">
+                        <label for="author" class="col-md-2 offset-md-2 text-white">
                         Tác giả
                         </label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 offset-md-2">
                             <input type="text" class="form-control" id="author" name="author">
                         </div>
                     </div>
 
 
                     <div class="row">
-                        <div class="col-md-9"></div>
-                        <div class="col-md-3">
+                        <div class="col-md-9 offset-md-2"></div>
+                        <div class="col-md-3 offset-md-5 mt-3 mb-3">
                             <!-- <input class="btn btn-primary" type="submit" value="Post"> -->
                             <button type="submit" class="btn btn-primary" id="button_post" name="button_post">Đăng phim </button>
                         </div>

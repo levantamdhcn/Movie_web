@@ -4,61 +4,34 @@
 		$name = $_SESSION['username'];
 		// get ID admin
 		require('libs/db.php');
-		$sqlAd = "SELECT * from user WHERE username = '$name'";
+		$sqlAd = "SELECT * from user WHERE username = '$name' AND userType=99";
 		$resultAd = mysqli_query($link, $sqlAd);
 		if(mysqli_num_rows($resultAd) > 0){
 			$rowAd = mysqli_fetch_assoc($resultAd);
 		}
+		else {
+			header("Location:index.php");
+		}
 		
 ?>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index.php">Admin Panel</a>
+	<nav class="navbar" role="navigation">
+		<div class="navbar-header" style="flex: 1">
+			<a class="navbar-brand" href="index.php">
+				<img src="../images/logo.png" alt="logo" class="logo"/>
+			</a>
 		</div>
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			<ul id="active" class="nav navbar-nav side-nav">
-				<li>
-					<a href="index.php">
-						<i class="fa fa-bullseye"></i> Dashboard</a>
-				</li>
-				<li>
-					<a href="addFilm.php">
-					<i class="fa fa-plus"></i></i> Add film</a>
-				</li>
-				<li>
-					<a href="addEpisode.php">
-					<i class="fa fa-plus"></i></i> Add episode</a>
-				</li>
-				<li>
-					<a href="manageFilm.php">
-					<i class="fa fa-tasks"></i> Manage film</a>
-				</li>
-				<li>
-					<a href="addUser.php">
-						<i class="fa fa-user-plus"></i> Add user</a>
-				</li>
-				<li>
-					<a href="manageUser.php">
-						<i class="fa fa-edit"></i> Manage User</a>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right navbar-user">
-				<li>
-					<form class="navbar-search">
-						<input type="text" placeholder="Search" class="form-control">
-					</form>
-				</li>
+		<div style="flex: 1">
+			<form class="navbar-search">
+				<input type="text" placeholder="Tìm kiếm" class="form-control border-0">
+			</form>
+		</div>
+		<div style="flex: 1; display: flex; justify-content: flex-end" class="h-100">
+			<ul class="nav navbar-nav h-100">
 				<li class="divider-vertical"></li>
-				<li class="dropdown user-dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-user"></i> <?php echo $_SESSION['username'];?>
+				<li class="dropdown user-dropdown h-100">
+					<a href="#" class="text-white dropdown-toggle d-block h-100" data-toggle="dropdown">
+						<i class="fa fa-user mr-1"></i> <?php echo $_SESSION['username'];?>
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
@@ -67,20 +40,17 @@
 						</li>
 						<li>
 							<form method="post" action="">
-								<a> <button id="logout" name="log_out" style=""> 
-									<i class="fa fa-power-off"></i>Đăng xuất</button> 
+								<a> <button id="logout" name="log_out" class="cursor-pointer" style="cursor: pointer;"> 
+									<i class="fa fa-power-off mr-2"></i>Đăng xuất</button> 
 								</a>
 							</form>
 						</li>
-
 					</ul>
 				</li>
-
 			</ul>
-
+		</div>
 			<style>
 				#logout{
-					background: black; 
 					width: 100%; 
 					border: none; 
 					color: white; 
@@ -98,6 +68,34 @@
 			?>
 		</div>
 	</nav>
+	<ul id="active" class="side-nav">
+				<li>
+					<a href="index.php">
+						<i class="fa fa-bullseye"></i> Dashboard</a>
+				</li>
+				<li>
+					<a href="addFilm.php">
+					<i class="fa fa-plus"></i></i> Thêm phim</a>
+				</li>
+				<li>
+					<a href="addEpisode.php">
+					<i class="fa fa-plus"></i></i> Thêm tập</a>
+				</li>
+				<li>
+					<a href="manageFilm.php">
+					<i class="fa fa-tasks"></i> Quản lý phim</a>
+				</li>
+				<li>
+					<a href="addUser.php">
+						<i class="fa fa-user-plus"></i> Thêm người dùng</a>
+				</li>
+				<li>
+					<a href="manageUser.php">
+						<i class="fa fa-edit"></i>Quản lý người dùng</a>
+				</li>
+			</ul>
+	</div>
+<div>
 <?php
 	} else {
 		header('Location:../index.php');

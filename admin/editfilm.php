@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="asset/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="asset/css/local.css" />
+    <link rel="stylesheet" type="text/css" href="asset/css/main.css" />
 
     <script type="text/javascript" src="asset/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>   
@@ -28,7 +28,7 @@
         }
     </style>
 </head>
-<body>
+<body style="height: 100vh; background-color: #141414;">
     <?php
     require('libs/db.php');
 
@@ -48,208 +48,212 @@
         <?php
             include("common.php");
         ?>
-        <div id="edit-film">
-            <div class="row text-center">
-                <h2>Chỉnh sửa film</h2>
-            </div>
-            <form method="post" id="form-insert-film" name="form-insert-film" class="form-horizontal" action="" role="form" >
-                <div>
-                    <label for="ID-film" class="col-md-2">
-                        ID phim
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="ID-film" value="<?php echo $row["id"]; ?>" readonly>
+        <div class="container">
+            <div id="edit-film">
+                <div class="row text-center" style="margin-top: 60px">
+                    <div class="col col-sm-6 offset-md-4">
+                        <h2 class="title text-white">Chỉnh sửa film</h2>
                     </div>
                 </div>
-                <div>
-                    <label for="film-name" class="col-md-2">
-                        Tên phim
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="film-name" name="film-name" value="<?php echo $row["name"]; ?>">
+                <form method="post" id="form-insert-film" name="form-insert-film" class="form-horizontal" action="" role="form" >
+                    <div>
+                        <label for="ID-film" class="col-md-2 offset-md-2 text-white">
+                            ID phim
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" class="form-control" id="ID-film" value="<?php echo $row["id"]; ?>" readonly>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="film-name2" class="col-md-2">
-                        Tên phim 2
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="film-name2" name="film-name2" value="<?php echo $row["name2"]; ?>">
+                    <div>
+                        <label for="film-name" class="col-md-2 offset-md-2 text-white">
+                            Tên phim
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" class="form-control" id="film-name" name="film-name" value="<?php echo $row["name"]; ?>">
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="status" class="col-md-2">
-                        Trạng thái
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="status" name="status" value="<?php echo $row["status"]; ?>">
+                    <div>
+                        <label for="film-name2" class="col-md-2 offset-md-2 text-white">
+                            Tên phim 2
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" class="form-control" id="film-name2" name="film-name2" value="<?php echo $row["name2"]; ?>">
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="director" class="col-md-2">
-                        Đạo diễn
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="director" name="director" value="<?php echo $row["director"]; ?>">
+                    <div>
+                        <label for="status" class="col-md-2 offset-md-2 text-white">
+                            Trạng thái
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" class="form-control" id="status" name="status" value="<?php echo $row["status"]; ?>">
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="actor" class="col-md-2">
-                        Diễn viên
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="actor" name="actor" value="<?php echo $row["actor"]; ?>">
+                    <div>
+                        <label for="director" class="col-md-2 offset-md-2 text-white">
+                            Đạo diễn
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" class="form-control" id="director" name="director" value="<?php echo $row["director"]; ?>">
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="category" class="col-md-2">
-                        Thể loại 
-                    </label>
-                    <div class="col-md-10">
-                        <select id="category" style="color: black" name="category">
-                            <?php 
-                                $sql1 = "SELECT * FROM category";
-                                $result1 = mysqli_query($link, $sql1);
+                    <div>
+                        <label for="actor" class="col-md-2 offset-md-2 text-white">
+                            Diễn viên
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" class="form-control" id="actor" name="actor" value="<?php echo $row["actor"]; ?>">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="category" class="col-md-2 offset-md-2 text-white">
+                            Thể loại 
+                        </label>
+                        <div class="col-md-10 offset-md-2">
+                            <select id="category" style="color: black" name="category">
+                                <?php 
+                                    $sql1 = "SELECT * FROM category";
+                                    $result1 = mysqli_query($link, $sql1);
 
-                                if (mysqli_num_rows($result1) > 0) { 
-                                    while($row1 = mysqli_fetch_assoc($result1)) { ?>
-                                    <option value="<?php echo $row1["id"];?>" <?php echo ($row1["id"] == $row["category_id"]) ?  "selected": "" ?> >
-                                        <?php echo $row1["name"];?>
-                                    </option>
-                            <?php 
+                                    if (mysqli_num_rows($result1) > 0) { 
+                                        while($row1 = mysqli_fetch_assoc($result1)) { ?>
+                                        <option value="<?php echo $row1["id"];?>" <?php echo ($row1["id"] == $row["category_id"]) ?  "selected": "" ?> >
+                                            <?php echo $row1["name"];?>
+                                        </option>
+                                <?php 
+                                        }
+                                        
+                                    }  
+                                    else {
+                                        echo "No catagory";
                                     }
-                                    
-                                }  
-                                else {
-                                    echo "No catagory";
-                                }
-                            ?>
-                        </select>
+                                ?>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="type" class="col-md-2">
-                        Type-movie 
-                    </label>
-                    <div class="col-md-10">
-                        <select id="type" style="color: black" name="type_movie" >
-                            <option value="1" <?php echo ($row["category_id"] == 1) ?  "selected": "" ?>>Phim lẻ</option>
-                            <option value="2" <?php echo ($row["category_id"] == 2) ?  "selected": "" ?>>Phim bộ</option>
-                            <option value="3" <?php echo ($row["category_id"] == 3) ?  "selected": "" ?>>Phim rạp</option>
-                            
-                            <!-- <?php 
-                                $sql = "SELECT * FROM type_movie";
-                                $result = mysqli_query($link, $sql);
+                    <div>
+                        <label for="type" class="col-md-2 offset-md-2 text-white">
+                            Type-movie 
+                        </label>
+                        <div class="col-md-10 offset-md-2">
+                            <select id="type" style="color: black" name="type_movie" >
+                                <option value="1" <?php echo ($row["category_id"] == 1) ?  "selected": "" ?>>Phim lẻ</option>
+                                <option value="2" <?php echo ($row["category_id"] == 2) ?  "selected": "" ?>>Phim bộ</option>
+                                <option value="3" <?php echo ($row["category_id"] == 3) ?  "selected": "" ?>>Phim rạp</option>
+                                
+                                <!-- <?php 
+                                    $sql = "SELECT * FROM type_movie";
+                                    $result = mysqli_query($link, $sql);
 
-                                if (mysqli_num_rows($result) > 0) { 
-                                    while($row = mysqli_fetch_assoc($result)) { ?>
-                                    <option value="<?php echo $row["id"];?>">
-                                        <?php echo $row["name"];?>
-                                    </option>
-                            <?php 
+                                    if (mysqli_num_rows($result) > 0) { 
+                                        while($row = mysqli_fetch_assoc($result)) { ?>
+                                        <option value="<?php echo $row["id"];?>">
+                                            <?php echo $row["name"];?>
+                                        </option>
+                                <?php 
+                                        }
+                                    }  
+                                    else {
+                                        echo "No nation";
                                     }
-                                }  
-                                else {
-                                    echo "No nation";
-                                }
-                            ?> -->
-                        </select>
+                                ?> -->
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="nation" class="col-md-2">
-                        Quốc gia
-                    </label>
-                    <div class="col-md-10">
-                        <select id="nation" style="color: black" name="nation" >
-                            <?php 
-                                $sql1 = "SELECT * FROM nation";
-                                $result1 = mysqli_query($link, $sql1);
+                    <div>
+                        <label for="nation" class="col-md-2 offset-md-2 text-white">
+                            Quốc gia
+                        </label>
+                        <div class="col-md-10 offset-md-2">
+                            <select id="nation" style="color: black" name="nation" >
+                                <?php 
+                                    $sql1 = "SELECT * FROM nation";
+                                    $result1 = mysqli_query($link, $sql1);
 
-                                if (mysqli_num_rows($result1) > 0) { 
-                                    while($row1 = mysqli_fetch_assoc($result1)) { ?>
-                                    <option value="<?php echo $row1["id"];?>" <?php echo ($row["nation_id"] == $row1["id"]) ?  "selected": "" ?>>
-                                        <?php echo $row1["name"];?>
-                                    </option>
-                            <?php 
+                                    if (mysqli_num_rows($result1) > 0) { 
+                                        while($row1 = mysqli_fetch_assoc($result1)) { ?>
+                                        <option value="<?php echo $row1["id"];?>" <?php echo ($row["nation_id"] == $row1["id"]) ?  "selected": "" ?>>
+                                            <?php echo $row1["name"];?>
+                                        </option>
+                                <?php 
+                                        }
+                                    }  
+                                    else {
+                                        echo "No nation";
                                     }
-                                }  
-                                else {
-                                    echo "No nation";
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="year" class="col-md-2 offset-md-2 text-white">
+                            Năm phát hành
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <select id="year" name="year" id="year" style="color: black" >
+                                <option value="2015" <?php echo ($row["year"] == 2015) ?  "selected": "" ?>>2015</option>
+                                <option value="2016" <?php echo ($row["year"] == 2016) ?  "selected": "" ?>>2016</option>
+                                <option value="2017" <?php echo ($row["year"] == 2017) ?  "selected": "" ?>>2017</option>
+                                <option value="2018" <?php echo ($row["year"] == 2018) ?  "selected": "" ?>>2018</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="image" class="col-md-2 offset-md-2 text-white">
+                        Link ảnh 
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="file" name="image_name" id="image_name" onchange="alertName()"/>
+                            <input type="text" class="form-control" id="image_link" name="image" value="<?php echo $row["image"]; ?>">
+                            <p class="help-block text-white">
+                                Ví dụ: /images/cuoc-chien-vo-cuc.jpg
+                            </p>
+                            <script>
+                                function alertName() {
+                                    var name =  document.getElementById("image_name").value;
+                                    var n = name.lastIndexOf('\\'); 
+                                    var result = name.substring(n + 1);
+                                    document.getElementById("image_link").value = "image/" + result;
                                 }
-                            ?>
-                        </select>
+                            </script>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="year" class="col-md-2">
-                        Năm phát hành
-                    </label>
-                    <div class="col-md-9">
-                        <select id="year" name="year" id="year" style="color: black" >
-                            <option value="2015" <?php echo ($row["year"] == 2015) ?  "selected": "" ?>>2015</option>
-                            <option value="2016" <?php echo ($row["year"] == 2016) ?  "selected": "" ?>>2016</option>
-                            <option value="2017" <?php echo ($row["year"] == 2017) ?  "selected": "" ?>>2017</option>
-                            <option value="2018" <?php echo ($row["year"] == 2018) ?  "selected": "" ?>>2018</option>
-                        </select>
+                    <div>
+                        <label for="decription" class="col-md-2 offset-md-2 text-white">
+                        Mô tả phim 
+                        </label>
+                        <div class="col-md-9 offset-md-2" style="color: black">
+                            <textarea name="decription" id="decription" cols="82" rows="10" ><?php echo $row["description"]; ?></textarea>
+                        </div>
+                    
                     </div>
-                </div>
-                <div>
-                    <label for="image" class="col-md-2">
-                    Link ảnh 
-                    </label>
-                    <div class="col-md-9">
-                        <input type="file" name="image_name" id="image_name" onchange="alertName()"/>
-                        <input type="text" class="form-control" id="image_link" name="image" value="<?php echo $row["image"]; ?>">
-                        <p class="help-block">
-                            Ví dụ: /images/cuoc-chien-vo-cuc.jpg
-                        </p>
-                        <script>
-                            function alertName() {
-                                var name =  document.getElementById("image_name").value;
-                                var n = name.lastIndexOf('\\'); 
-                                var result = name.substring(n + 1);
-                                document.getElementById("image_link").value = "image/" + result;
-                            }
-                        </script>
+                    <div>
+                        <label for="duration" class="col-md-2 offset-md-2 text-white">
+                        Thời lượng (phút)
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="number" class="form-control" id="duration" name="duration" value="<?php echo $row["duration"]; ?>">
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label for="decription" class="col-md-2">
-                    Mô tả phim 
-                    </label>
-                    <div class="col-md-9" style="color: black">
-                        <textarea name="decription" id="decription" cols="82" rows="10" ><?php echo $row["description"]; ?></textarea>
+                    <div>
+                        <label for="author" class="col-md-2 offset-md-2 text-white">
+                        Tác giả
+                        </label>
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" class="form-control" id="author" name="author" value="<?php echo $row["author"]; ?>">
+                        </div>
                     </div>
+
+
+                    <div class="row">
+                        <div class="col-md-9 offset-md-2"></div>
+                        <div class="col-md-3 offset-md-9">
+                            <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Lưu lại</button>
+                        </div>
+                    </div>
+                </form>
                 
-                </div>
-                <div>
-                    <label for="duration" class="col-md-2">
-                    Thời lượng (phút)
-                    </label>
-                    <div class="col-md-9">
-                        <input type="number" class="form-control" id="duration" name="duration" value="<?php echo $row["duration"]; ?>">
-                    </div>
-                </div>
-                <div>
-                    <label for="author" class="col-md-2">
-                    Tác giả
-                    </label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="author" name="author" value="<?php echo $row["author"]; ?>">
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-9"></div>
-                    <div class="col-md-3">
-                        <button type="submit" class="btn btn-primary" id="button_update" name="button_update">Lưu lại</button>
-                    </div>
-                </div>
-            </form>
-            
-        </div>  
+            </div> 
+        </div> 
     </div>
    
    
@@ -299,14 +303,14 @@
 
                 if ($result){?>
                     <script>
-                        alert("Edit film successfully!");
+                        alert("Cập nhật thành công!");
                         location.href= window.location.href; //reload page
                     </script>
                 <?php 
                 } else{ 
                 ?>
                     <script>
-                        alert("Edit film fail!"); -->
+                        alert("Cập nhật thất bại!"); -->
                     </script>
                 <?php
                 }

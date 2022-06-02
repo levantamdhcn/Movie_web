@@ -11,34 +11,36 @@
 
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="asset/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="asset/css/local.css" />
     <link rel="stylesheet" type="text/css" href="asset/css/delete.css" />
+    <link rel="stylesheet" type="text/css" href="asset/css/main.css" />
 
     <script type="text/javascript" src="asset/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>   
 </head>
-<body>
+<body style="height: 100vh; background-color: #141414;">
     <div id="wrapper">
         <?php
             include("common.php");
         ?>
        <div class="container">
-            <div class="row" id="search-user">
+            <div class="row" id="search-user" style="margin-top: 60px">
                 <form method="post">
-                    <div class="row">
-                       <div class="col-md-1"></div>
-                        <div class="col-md-7">
-                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search film for name, director, actor,..." name="qry">
-                        </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-lg btn-primary" type="submit" name="button_search" style="padding: 8px">Search</button>
+                    <div class="row mt-5">
+                        <div class="col col-md-12 offset-md-4">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <input style="font-size: 14px; padding: 23px 16px" class="form-control form-control-borderless" type="search" placeholder="Tìm phim..." name="qry">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-lg btn-primary" type="submit" name="button_search" style="padding: 8px">Search</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="row" id="list-user">
-                <div class="col-md-1"></div>
-                <div class="col-md-8">
+                <div class="col-md-12 offset-md-1">
                     <!-- get from database -->
                     <?php
                         if(isset($_POST["button_search"])){
@@ -48,22 +50,20 @@
                             $sql_name2 = "SELECT * FROM film WHERE name2 LIKE '%{$qry}%'";
                             $sql_director = "SELECT * FROM film WHERE director LIKE '%{$qry}%'";
                             $sql_actor = "SELECT * FROM film WHERE actor LIKE '%{$qry}%'";
-                            $sql_description = "SELECT * FROM film WHERE description LIKE '%{$qry}%'";
 
-                            $sql = $sql_name . " UNION ". $sql_name2 . " UNION ".$sql_director . " UNION ".$sql_actor. " UNION ". $sql_description;
+                            $sql = $sql_name . " UNION ". $sql_name2 . " UNION ".$sql_director . " UNION ".$sql_actor;
                             $result = mysqli_query($link, $sql);
                             if (mysqli_num_rows($result) > 0) { ?>
                                 <!-- output data of each row -->
-                                <table class="table" style="margin: 10px 0px">
+                                <table class="table text-white mt-6 table-hover table-dark mt-5 shadow">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Name 2</th>
-                                            <th scope="col">Director</th>
-                                            <th scope="col">Actor</th>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col" class="border-top-0">ID</th>
+                                            <th scope="col" class="border-top-0">Tên tiếng việt</th>
+                                            <th scope="col" class="border-top-0">Tên tiếng anh</th>
+                                            <th scope="col" class="border-top-0">Đạo diễn</th>
+                                            <th scope="col" class="border-top-0">Diễn viên</th>
+                                            <th scope="col" class="border-top-0"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -74,10 +74,9 @@
                                         <th> <?php echo $row["name2"] ?> </th>
                                         <th> <?php echo $row["director"] ?> </th>
                                         <th> <?php echo $row["actor"] ?> </th>
-                                        <th> <?php echo $row["description"] ?> </th>
-                                        <td>
-                                            <button type="button" class="btn btn-info" name="edit" onclick="edit(this)">Edit</button>
-                                            <button type="button" class="btn btn-danger" name="delete" onclick="del(this)">Delete</button>
+                                        <td class="d-flex">
+                                            <button type="button" class="btn btn-info mr-2" name="edit" onclick="edit(this)">Sửa</button>
+                                            <button type="button" class="btn btn-danger" name="delete" onclick="del(this)">Xóa</button>
                                         </td>
                                     </tr>
                                 <?php 

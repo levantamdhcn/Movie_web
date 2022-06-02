@@ -155,34 +155,6 @@ option {
   padding: 1px 3px
 }
 
-/* #chart .st,
-#movie-hot .listfilm .overlay,
-#movie-hot .next,
-#movie-hot .prev,
-#nav,
-#nav a,
-#page-info .like-icon,
-#page-list .filter .item .btn,
-#page-watch .action,
-#page-watch .action div,
-#search .submit,
-#sign .logged .bookmark span,
-#sign .logged .bookmark span i,
-#sign .logged .logout,
-#sign,
-#sign .login-form .submit,
-.block .blocktitle,
-.form .control-groups .btn,
-.form .control-groups .help i,
-.icon,
-.list-film li .speaker,
-.list-film li .stats .liked,
-.listfilm li .speaker,
-.server .label i,
-.tabs .tab.active {
-  background-image: url(../images/sprite.png?6)
-} */
-
 .red {
   color: red !important
 }
@@ -248,70 +220,6 @@ img.captcha-image {
 
 #log:hover {
   opacity: 0.8;
-}
-
-.icon.list {
-  background-position: -36px -393px
-}
-
-.icon.top {
-  background-position: -18px -393px
-}
-
-.icon.movie1 {
-  background-position: 0 -393px
-}
-
-.icon.clip {
-  background-position: 0 -610px
-}
-
-.icon.tag {
-  background-position: -54px -393px
-}
-
-.icon.light {
-  background-position: -90px -393px
-}
-
-.icon.light2 {
-  background-position: -104px -393px
-}
-
-.icon.like {
-  background-position: -120px -393px
-}
-
-.icon.add {
-  background-position: -137px -393px
-}
-
-.icon.comment {
-  background-position: -155px -393px
-}
-
-.ad_location_desktop,
-.ad_location_mobile,
-.ad_location_tablet {
-  display: none;
-  text-align: center;
-  overflow: hidden
-}
-
-.ad_location_desktop .code,
-.ad_location_mobile .code,
-.ad_location_tablet .code {
-  display: inline-block
-}
-
-.ad_location_desktop .sharing,
-.ad_location_mobile .sharing,
-.ad_location_tablet .sharing {
-  display: none
-}
-
-.ad_location_mobile>div {
-  display: inherit !important
 }
 
 #header {
@@ -2729,15 +2637,7 @@ span.page_nav {
   margin-right: 10px
 }
 
-.video-page .info .views {
-  background: url(../images/icon_view.png) 2px no-repeat;
-  padding-left: 23px;
-  float: right;
-  color: #eee
-}
-
 .video-page .info .title {
-  font-family: Arial;
   font-size: 11pt;
   margin: 0 0 10px;
   color: #fff

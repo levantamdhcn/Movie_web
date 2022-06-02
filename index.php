@@ -84,7 +84,7 @@
       <?php
         include("header.php");
       ?>
-      <div id="body-wrap" class="container">
+      <div id="body-wrap" class="container" style="height: 100vh">
         <?php
           include("movie-hot.php");
         ?>
