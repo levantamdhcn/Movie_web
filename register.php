@@ -290,7 +290,7 @@
           name="form-update" 
           class="form-horizontal" 
           action="" role="form" 
-          style="padding: 20px; height: calc(100vh - 63px - 4px - 175px)"
+          style="padding: 20px;"
         >
           <div class="container">
             <div class="row">

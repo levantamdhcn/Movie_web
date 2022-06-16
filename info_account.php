@@ -226,7 +226,7 @@
       <div id="body-wrap" class="container">
       </div>    
 
-      <h3 style="margin-bottom: 20px; font-size:30px;text-align:center; ">Thông tin khách hàng</h3>
+      <h3 style="margin-bottom: 20px; font-size:30px;text-align:center; ">Thông tin người dùng</h3>
 
       <div class="form-update">
         <form method="post" id="form-update" name="form-update" class="form-horizontal" action="" role="form">

@@ -3,7 +3,11 @@
   session_start();
   error_reporting(E_ALL);
   $mod='';
+
+  if(!$isset($_SESSION['access_count'])) $_SESSION['access_count'] = 0;
+  else $_SESSION['access_count']+=1;
 ?>
+
 <!DOCTYPE html>
 <!-- saved from url=(0018)javascript:void(); -->
 <html lang="vi" itemscope="itemscope" itemtype="http://schema.org/WebPage">

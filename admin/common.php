@@ -10,7 +10,7 @@
 			$rowAd = mysqli_fetch_assoc($resultAd);
 		}
 		else {
-			header("Location:index.php");
+			header('Location:../index.php');
 		}
 		
 ?>
@@ -69,32 +69,33 @@
 		</div>
 	</nav>
 	<ul id="active" class="side-nav">
-				<li>
-					<a href="index.php">
-						<i class="fa fa-bullseye"></i> Dashboard</a>
-				</li>
-				<li>
-					<a href="addFilm.php">
-					<i class="fa fa-plus"></i></i> Thêm phim</a>
-				</li>
-				<li>
-					<a href="addEpisode.php">
-					<i class="fa fa-plus"></i></i> Thêm tập</a>
-				</li>
-				<li>
-					<a href="manageFilm.php">
-					<i class="fa fa-tasks"></i> Quản lý phim</a>
-				</li>
-				<li>
-					<a href="addUser.php">
-						<i class="fa fa-user-plus"></i> Thêm người dùng</a>
-				</li>
-				<li>
-					<a href="manageUser.php">
-						<i class="fa fa-edit"></i>Quản lý người dùng</a>
-				</li>
-			</ul>
+		<li>
+			<a href="index.php">
+				<i class="fa fa-bullseye"></i> Dashboard</a>
+		</li>
+		<li>
+			<a href="addFilm.php">
+			<i class="fa fa-plus"></i></i> Thêm phim</a>
+		</li>
+		<li>
+			<a href="addEpisode.php">
+			<i class="fa fa-plus"></i></i> Thêm tập</a>
+		</li>
+		<li>
+			<a href="manageFilm.php">
+			<i class="fa fa-tasks"></i> Quản lý phim</a>
+		</li>
+		<li>
+			<a href="addUser.php">
+				<i class="fa fa-user-plus"></i> Thêm người dùng</a>
+		</li>
+		<li>
+			<a href="manageUser.php">
+				<i class="fa fa-edit"></i>Quản lý người dùng</a>
+		</li>
+	</ul>
 	</div>
+	
 <div>
 <?php
 	} else {
