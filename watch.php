@@ -4,6 +4,10 @@
   $sql = "select * from `episode` where `film_id` = '$film_id' and `episode` = '$episode'";
   $query= mysqli_query($link, $sql);
   $r=mysqli_fetch_assoc($query);
+  function view($id){
+   $sqlView = "update film SET num_view = num_view + 1 WHERE id = $id";
+   $query1 = mysqli_query($link, $sqlView);
+  }
 ?>
 <div id="content" style="margin-top:40px">
     <div  id="movie-display">

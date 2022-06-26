@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+    <script src="./asset/js/chart.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -90,33 +91,39 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col col-md-6">
+                    <div class="row mt-5 justify-content-between">
+                        <div class="col col-md-5 offset-md-1">
+                            <?php
+                                $sql = "select year, count(*) as count from film where year is not null group by year";
+                                $query = mysqli_query($link, $sql);
+                                foreach($query as $data) {
+                                    $year[] = $data["year"];
+                                    $amount[] = $data["count"];
+                                }
+                                
+                            ?>
                             <canvas id="myChart" width="400" height="400"></canvas>
                             <script>
-                                const ctx = document.getElementById('myChart').getContext('2d');
-                                const myChart = new Chart(ctx, {
+                                const ctxBar = document.getElementById('myChart').getContext('2d');
+                                const labels = <?php echo json_encode($year) ?>;
+                                let amounts = <?php echo json_encode($amount) ?>;
+                                amounts = amounts.map(el => parseInt(el));
+                                const myChart = new Chart(ctxBar, {
                                     type: 'bar',
                                     data: {
-                                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                        labels: labels,
                                         datasets: [{
-                                            label: '# of Votes',
-                                            data: [12, 19, 3, 5, 2, 3],
+                                            label: 'Số phim',
+                                            data: amounts,
                                             backgroundColor: [
-                                                'rgba(255, 99, 132, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(255, 206, 86, 0.2)',
-                                                'rgba(75, 192, 192, 0.2)',
-                                                'rgba(153, 102, 255, 0.2)',
-                                                'rgba(255, 159, 64, 0.2)'
+                                                '#36a2eb',
+                                                '#ff6384',
+                                                '#4bc0c0',
                                             ],
                                             borderColor: [
-                                                'rgba(255, 99, 132, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(255, 206, 86, 1)',
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(153, 102, 255, 1)',
-                                                'rgba(255, 159, 64, 1)'
+                                                '#36a2eb',
+                                                '#ff6384',
+                                                '#4bc0c0',
                                             ],
                                             borderWidth: 1
                                         }]
@@ -126,7 +133,89 @@
                                             y: {
                                                 beginAtZero: true
                                             }
-                                        }
+                                        },
+                                        plugins: {
+                                            title: {
+                                                display: true,
+                                                text: 'Số phim theo năm phát hành',
+                                                color: "#222222",
+                                                font: {
+                                                    weight: 'bold',
+                                                    size: '16px'
+                                                }
+                                            },
+                                            legend: {
+                                                display: false
+                                            },
+                                        },
+                                        
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div class="col col-md-5 d-flex justify-content-end">
+                            <?php
+                                $sql = "select distinct type_movie, count(*) as count from film where type_movie is not null group by type_movie";
+                                $query = mysqli_query($link, $sql);
+                                foreach($query as $dataPie) {
+                                    $typePie[] = $dataPie["type_movie"];
+                                    $amountPie[] = $dataPie["count"];
+                                }
+                            ?>
+                            <canvas id="myPieChart" width="400" height="400"></canvas>
+                            <script>
+                                const ctxPie = document.getElementById('myPieChart').getContext('2d');
+                                let labelsPie = <?php echo json_encode($typePie) ?>;
+                                labelsPie = labelsPie.map(el => {
+                                    if(el === "1") {
+                                        return "Phim lẻ"
+                                    }
+                                    if(el === "2") {
+                                        return "Phim bộ"
+                                    }
+                                    if(el === "3") {
+                                        return "Phim chiếu rạp"
+                                    }
+                                })
+                                let amountsPie = <?php echo json_encode($amountPie) ?>;
+                                amountsPie = amountsPie.map(el => parseInt(el));
+                                const myPieChart = new Chart(ctxPie, {
+                                    type: 'pie',
+                                    data: {
+                                        labels: labelsPie,
+                                        datasets: [{
+                                            label: 'Số phim',
+                                            data: amountsPie,
+                                            backgroundColor: [
+                                                '#ffcd56',
+                                                '#ff9f40',
+                                                '#36a2eb',
+                                            ],
+                                            borderColor: [
+                                                '#ffcd56',
+                                                '#ff9f40',
+                                                '#36a2eb',
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        plugins: {
+                                            title: {
+                                                display: true,
+                                                text: 'Số phim theo thể loại',
+                                                color: '#222222',
+                                                font: {
+                                                    weight: 'bold',
+                                                    size: '16px'
+                                                }
+                                            },
+                                            legend: {
+                                                display: false
+                                            },
+                                        },
+                                        
                                     }
                                 });
                             </script>

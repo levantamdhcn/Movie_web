@@ -1,5 +1,9 @@
 <?php
     require_once("libs/db.php");
+    require './vendor/autoload.php';
+
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__."/");
+    $dotenv->load();
     require_once __DIR__."/PHPMailer/src/PHPMailer.php";
     require_once __DIR__."/PHPMailer/src/Exception.php";
     require_once __DIR__."/PHPMailer/src/OAuth.php";
@@ -27,9 +31,9 @@
             // enable SMTP authentication
             $mail->SMTPAuth = true;                  
             // GMAIL username
-            $mail->Username = "levantamdhcn@gmail.com";
+            $mail->Username = $_ENV['email']; ;
             // GMAIL password
-            $mail->Password = "lvtann11";
+            $mail->Password = $_ENV['password']; ;
             $mail->SMTPSecure = "ssl";  
             // sets GMAIL as the SMTP server
             $mail->Host = "smtp.gmail.com";
