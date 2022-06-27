@@ -54,18 +54,15 @@ function view($id)
         </div>
         <script>
             var vid = document.getElementById("#myvideo<?php echo $r['film_id'] ?>");
+            var checkView = false
             vid.ontimeupdate = function() {
                 var data = onTrackedVideoFrame()
-                if (da > 10) {
-                    <?php
-                    if (isset($_GET['film_id'])) $film_id = $_GET['film_id'];
-                    $sqlGet = "select * from `film` where `id` = '$film_id'";
-                    $queryGet = mysqli_query($link, $sqlGet);
-                    $rGet = mysqli_fetch_assoc($queryGet);
-                    $view = $rGet['num_view'] + 1;
-                    $sqlUpdate = "UPDATE `film` SET`num_view`='$view' WHERE  `id` = '$film_id'";
-                    $queryUpdate = mysqli_query($link, $sqlUpdate);
-                    ?>
+                if (data > 10 && checkView == false) {
+                    checkView = true;
+                    $.post('./addView.php', {
+                        percent: data,
+                        film_id: <?php echo $r['film_id'];?>,
+                    })
                 }
             };
 
