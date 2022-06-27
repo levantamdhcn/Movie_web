@@ -1,4 +1,5 @@
 <?php
+        require_once("./libs/db.php");
         if (!empty($_POST['film_id']) && !empty($_POST['percent'])) {
             $percent = $_POST['percent'];
             $film_id = $_POST['film_id'];
