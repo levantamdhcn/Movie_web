@@ -61,17 +61,25 @@
             </div>
         </div>
         <div class="groups-btn">
-            <a href=<?php if($_SESSION["vip"] == true) {
-                echo "?mod=watch&film_id=" . $r['id'] . "&episode=1";
+            <a href=<?php if(!empty($_SESSION['vip'])) {
+                if($_SESSION["vip"] == true) {
+                    echo "?mod=watch&film_id=" . $r['id'] . "&episode=1";
+                } else {
+                    echo "choosePayment.php";
+                }
             } else {
-                echo "choosePayment.php";
+                echo "register.php";
             } ?>>
                 <div class="btn-watch fr hover-effect">
                     <div class="play">
                         <i class="fas fa-play"></i>
                     </div>
-                    <?php if($_SESSION["vip"] == true) {
-                        echo "Xem ngay";
+                    <?php if(!empty($_SESSION["vip"])) {
+                        if($_SESSION["vip"] == true) {
+                            echo "Xem ngay";
+                        } else {
+                            echo "Đăng ký để xem ngay";
+                        }
                     } else {
                         echo "Đăng ký để xem ngay";
                     } ?>

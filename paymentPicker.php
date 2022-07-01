@@ -103,8 +103,7 @@
           include("footer.php");
         ?>
     </div>
-    <script>
-      debugger
+    <script>      
       paypal.Buttons({
         // Sets up the transaction when a payment button is clicked
         createOrder: (data, actions) => {
