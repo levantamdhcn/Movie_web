@@ -28,7 +28,7 @@
 
         <div id="page-wrapper" class="text-center" style="margin: auto; background-color: #f7f8fc; height: 100vh">
             <div class="dashboard-wrapper" style="margin-top: 60px">
-                <div class="container" style="padding-top: 40px">
+                <div class="container" style="padding-top: 40px; padding-left: 60px">
                     <div class="row">
                         <div class="col-md-12 offset-1">
                             <div class="row">
@@ -205,6 +205,55 @@
                                             title: {
                                                 display: true,
                                                 text: 'Số phim theo thể loại',
+                                                color: '#222222',
+                                                font: {
+                                                    weight: 'bold',
+                                                    size: '16px'
+                                                }
+                                            },
+                                            legend: {
+                                                display: false
+                                            },
+                                        },
+                                        
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="row mt-5 justify-content-between">
+                        <div class="col col-md-5 offset-md-1 d-flex justify-content-end">
+                            <?php
+                                $months = array();
+                                for ($i = 1; $i <= 12; $i++){
+                                    $sql = "SELECT COUNT(*) AS 'count' FROM bill WHERE MONTH(create_at) = " . $i;
+                                    $temp = mysqli_fetch_array(mysqli_query($link, $sql))['count'];
+                                    array_push($months, $temp);
+                                }   
+                            ?>
+                            <canvas id="myLineChart" width="400" height="400"></canvas>
+                            <script>
+                                const ctxLine = document.getElementById('myLineChart').getContext('2d');
+                                let dataLine = <?php echo json_encode($months) ?>;
+                                dataLine = dataLine.map(el => parseInt(el));
+                                new Chart(document.getElementById("myLineChart"), {
+                                    type: 'line',
+                                    data: {
+                                        labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+                                        datasets: [{
+                                            label: 'Danh sách đăng ký theo tháng',
+                                            data: dataLine,
+                                            fill: false,
+                                            borderColor: 'rgb(75, 192, 192)',
+                                            tension: 0.1
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        plugins: {
+                                            title: {
+                                                display: true,
+                                                text: 'Danh sách hóa đơn theo tháng của năm 2022',
                                                 color: '#222222',
                                                 font: {
                                                     weight: 'bold',

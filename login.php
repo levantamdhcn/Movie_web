@@ -29,6 +29,7 @@
             if(password_verify($password,$dbarray["password"])){
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $password;
+                $_SESSION["user_id"] = $dbarray["ID"]; 
                 // phân quyền
                 if($dbarray['usertype'] == 99){
                     header('Location:admin/index.php');

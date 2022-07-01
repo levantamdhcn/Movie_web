@@ -93,6 +93,14 @@
 			<a href="manageUser.php">
 				<i class="fa fa-edit"></i>Quản lý người dùng</a>
 		</li>
+		<li>
+			<a href="mangeSubscriptions.php">
+				<i class="fas fa-seedling"></i></i>Quản lý đăng ký member</a>
+		</li>
+		<li>
+			<a href="manageBill.php">
+				<i class="fas fa-money-bill-wave-alt"></i>Quản lý hóa đơn</a>
+		</li>
 	</ul>
 	</div>
 	

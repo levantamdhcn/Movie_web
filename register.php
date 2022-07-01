@@ -1,9 +1,9 @@
 <?php
+    session_start();
     require_once("libs/db.php");
     if(isset($_POST["button_update"])){
         $username = $_POST["username"];
         $password = $_POST["password"];
-        echo $username;
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $email = $_POST["email"];
         $fullName = $_POST["fullname"];
@@ -19,9 +19,13 @@
         else{
             $sql = "INSERT INTO user(username,fullname,password,email,birthday,sex,usertype)
                         VALUES ('$username', '$fullName','$hash','$email','$birthday','$gender',20)";
+            $sqlUsername = "select * from user where username = '$username'";
             mysqli_query($link,$sql);
-            echo "Signup successful";
-            header('Location:index.php');
+            echo $sqlUsername;
+            $result = mysqli_fetch_array(mysqli_query($link, $sqlUsername));
+            $_SESSION["user_id"] = $result["ID"]; 
+            $_SESSION["username"] = $result["username"];
+            header('Location:setupPayment.php');
         }
     }
 ?>

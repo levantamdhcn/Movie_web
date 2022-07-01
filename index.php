@@ -93,7 +93,7 @@
           if (isset($_GET['mod'])) {
             $mod=$_GET['mod'];
           }
-          if($mod=='')$mod='home';
+          if($mod=='') $mod='home';
           $mod=str_replace('../','',$mod);
           if(is_file("{$mod}.php"))
             include("{$mod}.php");

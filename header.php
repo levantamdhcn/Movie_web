@@ -1,3 +1,25 @@
+<?php
+  require('libs/db.php');
+  date_default_timezone_set('Asia/Ho_Chi_Minh');
+  if(!empty($_SESSION["user_id"])) {
+    $user_id = $_SESSION["user_id"];
+    $sql = "select * from subscriptions where user_id = $user_id";
+    $result = mysqli_fetch_array(mysqli_query($link, $sql));
+    $currentDate = date('Y-m-d H:i:s');
+    if(mysqli_num_rows(mysqli_query($link, $sql)) > 0) {
+      if($currentDate < $result["valid_till"]) {
+        $_SESSION["vip"] = true;
+      }
+      else {
+        $_SESSION["vip"] = false;
+      }
+    }
+    else {
+      $_SESSION["vip"] = false;
+    }
+  }
+?>
+
 <div id="header">
   <div class="container d-flex align-items-center justify-content-between">
     <h1 id="logo"><a href="index.php" title="Trang chủ"></a></h1>
@@ -42,7 +64,11 @@
   <form method="post" action="">
       <button id="logout" name="log_out">Đăng xuất</button>
       <a rel="nofollow" href="info_account.php">Thay đổi thông tin</a></div>
-      <span type="text" style="margin-top:10px">&nbsp&nbsp Xin chào <?php echo $_SESSION["username"]?>
+      <span type="text" style="margin-top:10px; position: relative;">&nbsp&nbsp Xin chào <?php echo $_SESSION["username"]?>
+        <?php if($_SESSION["vip"] == true) {
+          echo "<span class='membership'>VIP</span>";
+        } ?>
+      </span>
   </form>
 <?php } ?>
 <style>

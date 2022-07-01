@@ -2673,6 +2673,89 @@ span.page_nav {
   margin: 6px 0
 }
 
+.simple-header {
+  height: 63px;
+}
+
+.simple-header #logo {
+  width: 100px;
+}
+
+.simple-header #logout,
+#next {
+  background-color: var(--main-color);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.2s;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  height: 39px;
+}
+
+#next {
+  margin-top: 40px;
+}
+
+.simpleContainter {
+  margin: 0 auto 15px;
+  width: 100%;
+  padding: 20px 32px 60px 32px;
+  height: calc(100vh - 253px);
+  overflow: scroll;
+}
+
+.securityCircle {
+  margin: 20px 0;
+  width: 80px;
+  height: 80px;
+  background: url("../images/Lock.png") no-repeat 50% 50%;
+}
+
+.paymentPickerTitle {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.paymentPickerSlogs {
+  list-style: none;
+  margin: 10px 0 0 45px;
+  padding: 0;
+}
+
+.paymentPickerSlog {
+  font-size: 16px;
+}
+
+.paymentPickerSlog i {
+  color: var(--main-color);
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.successCircle {
+  margin: 20px 0;
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-image: url("../images/check.png");
+}
+
+.membership {
+  position: absolute;
+  top: -12px;
+  right: -11px;
+  color: var(--main-color);
+  font-size: 12px;
+  font-weight: 600;
+}
+
 @media all and (min-width:500px) and (max-width:1024px) {
 
   #body-wrap #movie-recommend .col1,
